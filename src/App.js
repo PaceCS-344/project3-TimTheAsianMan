@@ -7,6 +7,9 @@ import Footer from './components/Footer';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  //Search State
+  //Should stay pinned to the top of the page
+  const [searchTerm, setSearchTerm] = useState('');
 
   const lightTheme = {
     backgroundColor: '#e0f7fa', 
@@ -29,9 +32,12 @@ function App() {
   return (
     <div className="App" style={isDarkMode ? darkTheme : lightTheme}>
       
-      <header style={{ backgroundColor: 'black', color: 'white', padding: '20px', textAlign: 'center', position: 'relative' }}>
+      {/* Set position to sticky so the nav and search stay visible while scrolling */}
+      <header style={{ backgroundColor: 'black', color: 'white', padding: '20px', textAlign: 'center', position: 'sticky', top: 0, zIndex: 100 }}>
         <h1>My Professional Portfolio</h1>
-        <Nav />
+        
+        {/* 2. Pass the state and the updater function to the Nav */}
+        <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
         <button 
           onClick={toggleTheme} 
@@ -54,8 +60,9 @@ function App() {
       
       <main>
         <AboutMe />
-        <Skills />
-        <Projects />
+        {/* 3. Pass the search term down to the components that need to be filtered */}
+        <Skills searchTerm={searchTerm} />
+        <Projects searchTerm={searchTerm} />
       </main>
       
       <Footer />
