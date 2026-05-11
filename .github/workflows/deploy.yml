@@ -4,7 +4,7 @@ name: Auto-Deploy Portfolio
 on:
   push:
     branches:
-      - main
+      - hook
 
 # 2. This is the list of tasks the virtual machine will perform
 jobs:
