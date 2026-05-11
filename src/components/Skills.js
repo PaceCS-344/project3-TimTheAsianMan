@@ -15,7 +15,7 @@ const skillsData = [
     borderColor: "#2196f3"
   },
   {
-    category: "Security & Tools",
+    category: "Security & Tools...",
     items: ["Network Security & Traffic Analysis", "Wireshark & Snort IDS", "Kali Linux & Penetration Testing", "Git & GitHub"],
     bgColor: "#e8f5e9", 
     borderColor: "#4caf50"
